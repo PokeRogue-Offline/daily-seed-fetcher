@@ -1,18 +1,20 @@
 #!/bin/bash
 set -e
 
+. "$(dirname "$0")/lib.sh"
+
 SEED=$(curl -sf \
   -H "Origin: https://pokerogue.net" \
   -H "Referer: https://pokerogue.net/" \
   "https://api.pokerogue.net/daily/seed")
 
 if [ -z "$SEED" ]; then
-  echo "ERROR: Failed to fetch daily seed."
+  log_msg "ERROR: Failed to fetch daily seed."
   exit 1
 fi
 
 echo -n "$SEED" > /output/daily-seed.txt
-echo "Fetched seed: $SEED"
+log_msg "Fetched seed: $SEED"
 
 curl -X POST \
   -H "Authorization: Bearer ${GH_PAT}" \

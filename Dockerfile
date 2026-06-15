@@ -8,6 +8,7 @@ ARG SUPERCRONIC_URL=https://github.com/aptible/supercronic/releases/download/${S
 RUN curl -fsSLo /usr/local/bin/supercronic "$SUPERCRONIC_URL" \
     && chmod +x /usr/local/bin/supercronic
 
+COPY lib.sh /usr/local/bin/lib.sh
 COPY getSeed.sh /usr/local/bin/getSeed.sh
 RUN chmod +x /usr/local/bin/getSeed.sh
 

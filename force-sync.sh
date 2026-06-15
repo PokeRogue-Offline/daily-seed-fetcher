@@ -6,15 +6,15 @@
 
 set -e
 
+. "$(dirname "$0")/lib.sh"
+
 CONTAINER="${1:-daily-seed-fetcher}"
 
 if ! docker inspect -f '{{.State.Running}}' "$CONTAINER" >/dev/null 2>&1; then
-  echo "ERROR: Container '$CONTAINER' is not running." >&2
+  log_msg "ERROR: Container '$CONTAINER' is not running."
   exit 1
 fi
 
-echo "Triggering manual sync in '$CONTAINER'..."
-echo "---"
+log_msg "Triggering manual sync in '$CONTAINER'..."
 docker exec "$CONTAINER" sh -c '/usr/local/bin/getSeed.sh 2>&1 | tee /proc/1/fd/1'
-echo "---"
-echo "Done."
+log_msg "Done."
