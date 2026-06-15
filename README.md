@@ -27,6 +27,23 @@ at 00:01 UTC. Schedule changes can be made by editing `crontab` and running
 docker compose logs -f
 ```
 
+## Force a manual sync
+
+To trigger a fetch + workflow dispatch immediately (without waiting for the
+00:01 UTC schedule), run:
+
+```bash
+./force-sync.sh
+```
+
+This runs `getSeed.sh` inside the running container and streams its output
+to your terminal. If your container has a different name, pass it as an
+argument:
+
+```bash
+./force-sync.sh my-container-name
+```
+
 ## Internals
 
 - **Dockerfile**: Alpine + [supercronic](https://github.com/aptible/supercronic)
