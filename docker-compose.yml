@@ -1,0 +1,11 @@
+services:
+  daily-seed-fetcher:
+    build: .
+    image: ghcr.io/pokerogue-offline/daily-seed-fetcher:latest
+    container_name: daily-seed-fetcher
+    restart: unless-stopped
+    environment:
+      - GH_PAT=${GH_PAT}
+    volumes:
+      - /var/www/scooom.com/html:/output
+      - ./crontab:/etc/crontabs/root:ro
