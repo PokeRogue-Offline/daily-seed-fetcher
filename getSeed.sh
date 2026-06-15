@@ -3,6 +3,10 @@ set -e
 
 . "$(dirname "$0")/lib.sh"
 
+if [[ "$1" == "1" ]]; then
+  log_msg "Force sync requested!";
+fi
+
 SEED=$(curl -sf \
   -H "Origin: https://pokerogue.net" \
   -H "Referer: https://pokerogue.net/" \

@@ -16,5 +16,5 @@ if ! docker inspect -f '{{.State.Running}}' "$CONTAINER" >/dev/null 2>&1; then
 fi
 
 log_msg "Triggering manual sync in '$CONTAINER'..."
-docker exec "$CONTAINER" sh -c '/usr/local/bin/getSeed.sh 2>&1 | tee /proc/1/fd/1'
+docker exec "$CONTAINER" sh -c '/usr/local/bin/getSeed.sh 1 2>&1 | tee /proc/1/fd/1'
 log_msg "Done."
