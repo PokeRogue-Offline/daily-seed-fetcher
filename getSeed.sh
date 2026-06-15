@@ -16,7 +16,7 @@ fi
 echo -n "$SEED" > /output/daily-seed.txt
 log_msg "Fetched seed: $SEED"
 
-curl -X POST \
+curl -s -X POST \
   -H "Authorization: Bearer ${GH_PAT}" \
   -H "Accept: application/vnd.github+json" \
   "https://api.github.com/repos/PokeRogue-Offline/pokerogue-offline/actions/workflows/fetch-seed.yaml/dispatches" \
