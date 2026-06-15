@@ -15,6 +15,6 @@ fi
 
 echo "Triggering manual sync in '$CONTAINER'..."
 echo "---"
-docker exec "$CONTAINER" /usr/local/bin/getSeed.sh
+docker exec "$CONTAINER" sh -c '/usr/local/bin/getSeed.sh 2>&1 | tee /proc/1/fd/1'
 echo "---"
 echo "Done."
