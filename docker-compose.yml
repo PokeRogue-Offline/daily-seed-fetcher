@@ -10,3 +10,7 @@ services:
       - /var/www/scooom.com/html:/output
       - ./crontab:/etc/crontabs/root:ro
       - /opt/scripts/all/send_ntfy:/usr/local/bin/send_ntfy
+      - pkr-state:/state
+
+volumes:
+  pkr-state:

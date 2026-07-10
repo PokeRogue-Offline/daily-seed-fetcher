@@ -5,8 +5,8 @@ set -e
 
 UPSTREAM_URL="https://github.com/pagefaultgames/pokerogue.git"
 UPSTREAM_BRANCH="main"
-REPO_DIR="/output/pkr-upstream-repo"
-STATE_FILE="/output/last-pkr-version.txt"
+REPO_DIR="/state/pkr-upstream-repo"
+STATE_FILE="/state/last-pkr-version.txt"
 VERSION_REGEX='^1\.[0-9]+\.[0-9]+\.[0-9]+$'
 
 # --- One-time sparse clone setup ---
