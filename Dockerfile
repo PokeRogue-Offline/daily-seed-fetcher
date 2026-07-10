@@ -1,6 +1,6 @@
 FROM alpine:3.20
 
-RUN apk add --no-cache bash curl
+RUN apk add --no-cache bash curl git jq
 
 # supercronic - lightweight cron for containers
 ARG SUPERCRONIC_VERSION=v0.2.33
@@ -11,6 +11,8 @@ RUN curl -fsSLo /usr/local/bin/supercronic "$SUPERCRONIC_URL" \
 COPY lib.sh /usr/local/bin/lib.sh
 COPY getSeed.sh /usr/local/bin/getSeed.sh
 RUN chmod +x /usr/local/bin/getSeed.sh
+COPY checkVersion.sh /usr/local/bin/checkVersion.sh
+RUN chmod +x /usr/local/bin/checkVersion.sh
 
 COPY crontab /etc/crontabs/root
 
