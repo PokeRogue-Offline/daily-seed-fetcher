@@ -25,3 +25,5 @@ curl -s -X POST \
   -H "Accept: application/vnd.github+json" \
   "https://api.github.com/repos/PokeRogue-Offline/pokerogue-offline/actions/workflows/fetch-seed.yaml/dispatches" \
   -d '{"ref":"main"}'
+
+send_ntfy "Updated Seed: ${SEED}" "PokeRogueOffline Seed Update"
