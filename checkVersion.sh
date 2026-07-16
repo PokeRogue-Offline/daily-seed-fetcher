@@ -60,3 +60,4 @@ curl -s -X POST \
 
 echo -n "$CURRENT_VERSION" > "$STATE_FILE"
 log_msg "Triggered create-release.yaml for version ${CURRENT_VERSION}."
+ntfy_send "Triggered create-release.yaml for version ${CURRENT_VERSION}."
