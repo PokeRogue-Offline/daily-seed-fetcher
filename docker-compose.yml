@@ -7,7 +7,7 @@ services:
     environment:
       - GH_PAT=${GH_PAT}
     volumes:
-      - /var/www/scooom.com/html:/output
+      - /var/www/default/html:/output
       - ./crontab:/etc/crontabs/root:ro
       - /opt/scripts/all/send_ntfy:/usr/local/bin/send_ntfy
       - pkr-state:/state
