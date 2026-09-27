@@ -13,6 +13,8 @@ COPY getSeed.sh /usr/local/bin/getSeed.sh
 RUN chmod +x /usr/local/bin/getSeed.sh
 COPY checkVersion.sh /usr/local/bin/checkVersion.sh
 RUN chmod +x /usr/local/bin/checkVersion.sh
+COPY triggerNightlyBuild.sh /usr/local/bin/triggerNightlyBuild.sh
+RUN chmod +x /usr/local/bin/triggerNightlyBuild.sh
 
 COPY crontab /etc/crontabs/root
 

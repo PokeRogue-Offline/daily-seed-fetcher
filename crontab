@@ -1,3 +1,4 @@
 CRON_TZ=UTC
 1 0 * * * /usr/local/bin/getSeed.sh >> /proc/1/fd/1 2>>/proc/1/fd/2
 */5 * * * * /usr/local/bin/checkVersion.sh >> /proc/1/fd/1 2>>/proc/1/fd/2
+0 1 * * * /usr/local/bin/triggerNightlyBuild.sh >> /proc/1/fd/1 2>>/proc/1/fd/2

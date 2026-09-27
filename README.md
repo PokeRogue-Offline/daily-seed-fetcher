@@ -3,7 +3,8 @@
 Fetches the PokeRogue daily seed every day at 00:01 UTC, writes it to
 `/output/daily-seed.txt`, and triggers the `fetch-seed.yaml` workflow in
 [PokeRogue-Offline/pokerogue-offline](https://github.com/PokeRogue-Offline/pokerogue-offline)
-via the GitHub API.
+via the GitHub API. Also triggers the `nightly-builds.yml` workflow every day
+at 01:00 UTC (8PM CT).
 
 ## Usage
 
@@ -51,4 +52,6 @@ argument:
   no syslog).
 - **getSeed.sh**: fetches the seed, writes it to `/output/daily-seed.txt`,
   and dispatches the GitHub Actions workflow.
-- **crontab**: runs `getSeed.sh` daily at `00:01 UTC`.
+- **triggerNightlyBuild.sh**: dispatches the `nightly-builds.yml` workflow.
+- **crontab**: runs `getSeed.sh` daily at `00:01 UTC` and
+  `triggerNightlyBuild.sh` daily at `01:00 UTC` (8PM CT).
