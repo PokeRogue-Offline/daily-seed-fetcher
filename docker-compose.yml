@@ -6,6 +6,7 @@ services:
     restart: unless-stopped
     environment:
       - GH_PAT=${GH_PAT}
+      - NIGHTLY_REF=${NIGHTLY_REF:-main}
     volumes:
       - /var/www/default/html:/output
       - ./crontab:/etc/crontabs/root:ro
